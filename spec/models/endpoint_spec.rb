@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Endpoint, type: :model do
+  before(:all) do
+  Endpoint.delete_all
+  end
   context 'validation tests' do
     it 'ensures verb presence' do
       endpoint = FactoryBot.build(:endpoint, verb: nil)
