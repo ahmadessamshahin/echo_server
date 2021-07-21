@@ -1,24 +1,39 @@
-# README
+# Service Dev setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+After cloning the repository, follow the next steps to have the project's BE up and running:
 
-Things you may want to cover:
+## Guide
 
-* Ruby version
+- [Service Dev setup](#service-dev-setup)
+  - [Guide](#guide)
+  - [Description](#description)
+  - [System dependencies](#system-dependencies)
+  - [Execute code](#execute-code)
+  - [Execute Tests](#execute-tests)
+  - [WIKI](#wiki)
 
-* System dependencies
+## Description
+  Simple BE project that mock the response to client called ECHO-SERVER 
+  ```
+  consist of one url: /endpoints
+  with the whole CRUD operation to create any custom endpoint to the client  
+  ```
+## System dependencies
 
-* Configuration
+- [Docker](https://docs.docker.com/engine/install/)
+- [Docker Compose ^1.2.4](https://docs.docker.com/compose/install/)
+## Execute code
 
-* Database creation
+    docker-compose up --build
 
-* Database initialization
+## Execute Tests
 
-* How to run the test suite
+    docker exec -it backend bundle exec rspec
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+## WIKI
 
-* ...
+- [EchoServer](https://github.com/ahmadessamshahin/echo_server/wiki/EchoServer)
+
+
+- [Endpoints](https://github.com/ahmadessamshahin/echo_server/wiki/Endpoints)
