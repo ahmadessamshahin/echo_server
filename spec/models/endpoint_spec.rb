@@ -23,16 +23,17 @@ RSpec.describe Endpoint, type: :model do
       expect(endpoint.errors[:code]).to include("can't be blank")
     end
 
-    it 'ensures body presence' do
-      endpoint = FactoryBot.build(:endpoint, body: nil)
-      endpoint.validate
-      expect(endpoint.errors[:body]).to include("can't be blank")
-    end
 
     it 'ensures type presence' do
       endpoint = FactoryBot.build(:endpoint, infoType: nil)
       endpoint.validate
       expect(endpoint.errors[:infoType]).to include("can't be blank")
+    end
+
+    it 'ensures body isOptional' do
+      endpoint = FactoryBot.build(:endpoint, body: nil)
+      endpoint.validate
+      expect(endpoint.errors[:body]).not_to include("can't be blank")
     end
 
     it 'ensures headers isOptional' do
