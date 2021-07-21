@@ -10,8 +10,6 @@ class CreateEndpoints < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :endpoints, :path
-    add_index :endpoints, :verb
     add_index :endpoints, [:path, :verb], unique: true
   end
 end

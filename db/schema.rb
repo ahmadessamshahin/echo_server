@@ -25,8 +25,6 @@ ActiveRecord::Schema.define(version: 2021_07_18_114142) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["path", "verb"], name: "index_endpoints_on_path_and_verb", unique: true
-    t.index ["path"], name: "index_endpoints_on_path"
-    t.index ["verb"], name: "index_endpoints_on_verb"
   end
 
 end
