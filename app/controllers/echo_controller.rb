@@ -6,7 +6,7 @@ class EchoController < ApplicationController
     if @endpoint
       render json: @endpoint.body, status: @endpoint.code, headers: @endpoint.headers  
     else
-      render json: { errors: [{code: "not_found", detail: "Requested page `#{request.path}` does not exist"}]}
+      render json: { errors: [{code: "not_found", detail: "Requested page `#{request.path}` does not exist"}]}, status: 404
     end
   end
 
