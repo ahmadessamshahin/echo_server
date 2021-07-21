@@ -17,10 +17,14 @@ class EndpointsController < ApplicationController
   # POST /endpoints
   def create
     @endpoint = Endpoint.new(object_parser(endpoint_params))
-    if @endpoint.save
-      render json: mapEndpointResponse(@endpoint), status: :created 
-    else
-      render json: @endpoint.errors, status: :unprocessable_entity
+    begin 
+      if @endpoint.save
+        render json: mapEndpointResponse(@endpoint), status: :created 
+      else
+        render json: @endpoint.errors, status: :unprocessable_entity
+      end
+    rescue ActiveRecord::RecordNotUnique
+      render json: { errors: [{code: "dublicate record", detail: "The endpoint try to create already exist"}]},  status: 422  
     end
   end
 
