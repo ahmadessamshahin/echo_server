@@ -25,7 +25,8 @@ After cloning the repository, follow the next steps to have the project's BE up 
 ## Execute code
 
     docker-compose up --build
-
+## Setup Tests 
+   docker exec -it backend rails db:test:prepare
 ## Execute Tests
 
     docker exec -it backend bundle exec rspec
